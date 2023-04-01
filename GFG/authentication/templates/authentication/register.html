@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file%}
+    <link rel="stylesheet" href="{% static 'authentication/css/style.css' %}"
+{% endblock %}
+
+{% block title%} Register {% endblock%}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="col">
+            <h1>Register</h1>
+            <hr>
+
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                {% if error%}
+                    <div class="alert alert-danger">
+                        {{error}}
+                    </div>
+                {% endif %}
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="fname">
+                    </div>
+                    <div class="col">
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="lname">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <div class="col">
+                        <label for="repassword" class="form-label">Re-Password</label>
+                        <input type="password" class="form-control" name="repassword">
+                    </div>
+                </div>
+
+                
+                <div class="mb-3"></div>
+                <input type="submit" value="Register" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+{% endblock%}
+
+{% block js_files %}
+    <script src="{% static 'authentication/js/script.js'}"
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file%}
+    <link rel="stylesheet" href="{% static 'auction/css/style.css' %}"
+{% endblock %}
+
+{% block title%}Homepage{% endblock%}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-9">
+                <h1>Auctions</h1>
+                <hr>
+                {% for product in products%}
+                    {% include 'auction/partials/_auction.html' %}
+                {% endfor %}
+                
+            </div>         
+        </div>
+    </div>
+{% endblock%}
+
+{% block js_files %}
+    <script src="{% static 'auction/js/script.js'}"
+{% endblock %}

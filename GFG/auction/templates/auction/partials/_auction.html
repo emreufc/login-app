@@ -1,0 +1,21 @@
+{% load static %}
+
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="{% static 'img/'|add:product.image %}" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'product-details' product.slug %}">
+                    {{ product.title }}
+                    </a>
+                </h5>
+                <div class="card-text">
+                    {{ product.description }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

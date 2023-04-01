@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%}Product Details{% endblock%}
+
+{% block content%}
+
+    <div class="col-9 mt-5">
+        <div class="card mb-3"  style="margin-left: 20px;">
+            <div class="row">
+                    
+                <div class="col-md-12">
+                    <div class="card-body" >
+                        <h1 class="card-title h3 mb-3">                  
+                            {{ product.title|title }}
+                        </h1>
+                        <img src="{% static 'img/'|add:product.image %}" alt="" class="img-fluid" style="float:left;margin-left:20px;margin-right: 20px;margin-bottom: 20px;">
+                        <div class="card-text">
+                            {{ product.description }}
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
